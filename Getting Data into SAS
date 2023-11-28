@@ -33,9 +33,10 @@ Temporary data set.
 Once you exit the SAS system, this temporary storage area is deleted, and all temporary data files in it are also deleted.
 In order to create a permanent data set, the storage place and name must be specified for the data set. The first part is called the library tag or logical library name.
 It always uses the LIBNAME statement to associate the library tag with a directory. Indicates where the data set is stored.
+
 For example: 
-```  libname develop "d:\projects\develop\data"
-```
+Use the following library name for the "develop" project's data stored in the "d:\projects\develop\data" directory:
+``` libname develop "d:\projects\develop\data" ```
 
 develop.t_tmp indicates that the data set t_tmp is stored in the "d:\projects\develop\data" directory, and tmp or work.tmp indicates that the data set tmp is stored in the temporary storage area;
 
