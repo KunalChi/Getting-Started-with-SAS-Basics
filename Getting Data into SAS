@@ -36,7 +36,12 @@ It always uses the LIBNAME statement to associate the library tag with a directo
 
 For example: 
 Use the following library name for the "develop" project's data stored in the "d:\projects\develop\data" directory:
-``` libname develop "d:\projects\develop\data" ```
+
+LIBNAME Statement SYNTAX
+```LIBNAME libref 'SAS-data-library'<options>;```
+
+Example LIBNAME Statement
+```LIBNAME develop 'D:\projects\develop\data';```
 
 develop.t_tmp indicates that the data set t_tmp is stored in the "d:\projects\develop\data" directory, and tmp or work.tmp indicates that the data set tmp is stored in the temporary storage area;
 
