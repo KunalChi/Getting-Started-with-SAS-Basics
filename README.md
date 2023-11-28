@@ -1,37 +1,27 @@
-**** SAS Base Programming for SAS®9 and SAS®9.4** Base SAS [which contains the core set of features for SAS programming] ******
-Data management, business intelligence, and various types of analysis (predictive, descriptive, and prescriptive) 
-are just a few of the analytical uses for SAS (Statistical Analysis Software), which the SAS Institute created in the 1970s.
-The introduction of JMP (Jump) marked a significant advancement, leveraging the graphical user interface, which is 
-particularly beneficial in fields like Six Sigma, quality control, and engineering. SAS's platform independence allows 
-it to operate on multiple operating systems, like Linux and Windows. The software relies heavily on SAS programmers.
-who manipulate SAS datasets to generate insightful data analyses. Over the years, SAS has expanded its offerings, 
-encompassing solutions for data governance, data quality, big data analytics, text mining, fraud management, 
-and health science. Its extensive range of solutions caters to virtually every business domain. 
+SAS Base Programming for SAS®9 and SAS®9.4
 
-**Typographical conventions** 
-SAS doesn't care whether your programs are written in uppercase or lowercase, so you can write your programs 
-any way you want. The statements below show the syntax, or general form, while the statements on the right 
-show an example of actual statements as they might appear in a SAS program:
+SAS is a statistical analysis software created by the SAS Institute in the 1970s. It offers a range of analytical uses, including data management, business intelligence, and various types of analysis such as predictive, descriptive, and prescriptive analysis. The introduction of JMP (Jump) was a significant advancement as it introduced a graphical user interface, particularly beneficial in fields like Six Sigma, quality control, and engineering. SAS can operate on multiple operating systems like Linux and Windows due to its platform independence. SAS programmers play a crucial role in manipulating SAS datasets to generate insightful data analyses. Over the years, SAS has expanded its offerings, providing solutions for data governance, data quality, big data analytics, text mining, fraud management, and health science. Its wide range of solutions serves various business domains.
 
-Basic Syntax: 
-    PROC PRINT DATA = data-set-name;
-        VAR variable-list;
+Typographical conventions:
+SAS doesn't differentiate between uppercase and lowercase letters in programs, allowing flexibility in writing. The syntax below represents the general form of statements, while the examples on the right demonstrate actual statements you might see in a SAS program.
+
+Basic Syntax:
+```
+PROC PRINT DATA = data-set-name;
+    VAR variable-list;
+```
+
 
 Example:
-    PROC PRINT DATA = bigcats;
-        VAR Lions Tigers;
+```
+PROC PRINT DATA = bigcats;
+    VAR Lions Tigers;
+```
 
-It is worth noting that the keywords PROC PRINT, DATA, and VAR remain consistent across both sides. 
-Additionally, the syntax side comprises an actual data set name and variable list in place of the 
-descriptive terms data-set-name and variable-list names in the example.
+Note that the keywords PROC PRINT, DATA, and VAR remain consistent on both sides. The syntax side provides actual data set names and variable lists, replacing the descriptive terms like data-set-name and variable-list names used in the example.
 
-**Indention**
-Programs are formatted in a way that makes them easy for you to read and understand.
-You do not have to format your programs this way, as SAS is very flexible, but paying attention to 
-some of these details will make your programs easier to read. A SAS program is a sequence of statements
-executed in order. A statement gives information or instructions to SAS and must be appropriately placed 
-in the program
+Indentation:
+SAS programs can be formatted in a way that enhances readability, although it's not mandatory. Following these formatting guidelines can make your programs easier to read. A SAS program consists of statements executed in a specific order. Each statement provides information or instructions to SAS and should be appropriately placed within the program.
 
-**SAS Statements**
- As with any language, there are a few rules to follow when writing SAS programs.
-The most important rule is that every SAS statement ends with a semicolon.
+SAS Statements:
+Similar to any programming language, there are rules to follow when writing SAS programs. The most important rule is that every SAS statement must end with a semicolon.
