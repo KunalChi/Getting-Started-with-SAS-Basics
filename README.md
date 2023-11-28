@@ -13,13 +13,13 @@ SAS doesn't care whether your programs are written in uppercase or lowercase, so
 any way you want. The statements below show the syntax, or general form, while the statements on the right 
 show an example of actual statements as they might appear in a SAS program:
 
-    Basic Syntax: 
-PROC PRINT DATA = data-set-name;
-    VAR variable-list;
+Basic Syntax: 
+    PROC PRINT DATA = data-set-name;
+        VAR variable-list;
 
-    Example:
-PROC PRINT DATA = bigcats;
-    VAR Lions Tigers;
+Example:
+    PROC PRINT DATA = bigcats;
+        VAR Lions Tigers;
 
 It is worth noting that the keywords PROC PRINT, DATA, and VAR remain consistent across both sides. 
 Additionally, the syntax side comprises an actual data set name and variable list in place of the 
