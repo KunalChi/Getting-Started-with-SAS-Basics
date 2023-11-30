@@ -1,4 +1,4 @@
-
+**SAS Terminology**
 1. Access Descriptor:
 A SAS/ACCESS file describes data in a PC file. It serves as a master descriptor file from which you can create view descriptors.
 
@@ -66,67 +66,47 @@ A collection of related records treated as a unit. SAS files are processed and c
 An instruction used by SAS software to display or write each value of a variable. SAS software provides some formats, while users can create custom formats using the FORMAT procedure in base SAS software.
 
 23. Row
-
 The horizontal component of a PC file. A row is analogous to a SAS observation.
 
 24. SAS Data File
-
-A SAS data file contains both the data values and the descriptor information that associates with the data, such as the variable attributes.
-
-In previous releases of SAS software, all SAS data sets were SAS data files. SAS data files are of member type DATA. In SAS software, a PROC SQL table is a SAS data file.
+A SAS data file contains both the data values and the descriptor information that associates with the data, such as the variable attributes. In previous releases of SAS software, all SAS data sets were SAS data files. SAS data files are of member type DATA. In SAS software, a PROC SQL table is a SAS data file.
 
 25. SAS Data Library
-
 A collection of one or more SAS files that SAS software recognizes and that references and stores as a unit. Each file is a member of the library.
 
 26. SAS Data Set
-
 Descriptor information and its related data values, organized as a table of observations and variables that can be processed by SAS software. A SAS data set can be either a SAS data file or a SAS data view.
-
 A SAS data set arranges in a rectangular, two-dimensional format. Each item in a SAS data set is a data value. Data values in a row compose an observation, and those in a column compose a variable.
 
 27. SAS Data View
-
 A SAS data view contains only the descriptor and other information to retrieve the data values from other data sources. PROC SQL views, SAS/ACCESS views, and DATA step views are considered SAS data views. SAS data views are of member type VIEW.
 
 28. Structured Query Language (SQL)
-
 The standardized, high-level query language that is used in relational database management systems to create and manipulate database management system objects. SAS software implements SQL through the SQL procedure.
 
 29. Table Alias
-
 A temporary, alternate name for a table that is specified in a FROM clause. We optionally use table aliases to qualify column names when table joins.
 
 30. Table Lookup
-
 A processing technique in which information retrieves from an auxiliary source, on the basis of values of variables in the primary source.
 
 31. Target Variable
-
 The variable to which the result of a function or expression is assigned.
 
 32. Variable
-
 A column in a SAS data set. A variable is a set of data values that describe a given characteristic across all observations. In the ACCESS procedure, variables are created from the PC files’ columns or fields.
 
 33. View
-
 View is a definition of a virtual dataset. This file contains no data but describes or defines the store data.
 
-This was all on SAS Terminology Tutorial. Hope you like our explanation of SAS Glossary.
-
 34. SAS Data Mining:
-
 Methods for identifying trends and connections in data.
 
 35. SAS ETL Studio:
-
 SAS ETL Studio is an extract, transform, and load (ETL) application for data warehousing and integration.
 
 36. SAS Forecast Studio:
-
 A time series forecasting and modelling tool
 
 37. SAS Viya:
-
 An extension of SAS’s capabilities for advanced analytics and machine learning is SAS Viya, a cloud-native platform.
