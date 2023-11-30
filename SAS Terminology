@@ -1,112 +1,75 @@
-**SAS Terminology**
-1. Access Descriptor:
-A SAS/ACCESS file describes data in a PC file. It serves as a master descriptor file from which you can create view descriptors.
+# SAS Terminology for SAS 9.4.3 and SAS Viya
 
-2. Browsing Data:
-The process of viewing observations in a file.
+1. Access Descriptor: SAS Access Descriptor is a SAS/ACCESS file. It describes data in a PC file. It serves as a master descriptor file from which you can create view descriptors.
 
-3. Column:
-A vertical component of a PC file with a unique name. It contains data of a specific type and certain attributes, similar to a variable in SAS terminology.
+2. Browsing Data: The process of viewing observations in a file. It is similar to a browsing operation in a PC file.
 
-4. Column Function:
-An operation that computes over each value in a column. For example, AVG(SALARY) is a column function.
+3. Column: A vertical component of a PC file with a unique name. It contains data of a specific type and certain attributes, similar to a variable in SAS terminology. A column is analogous to a SAS variable.
 
-5. Data Type:
-An attribute of every column in a table. It indicates the operating environment, physical storage allocation, and the type of data within the column. It is analogous to the type attribute of SAS variables.
+4. Column Function: An operation that computes over each value in a column. For example, AVG(SALARY) is a column function. Column functions are created in the WHERE clause of a PROC SQL statement. A column function is analogous to a SAS function.
 
-6. SAS Data Value:
-A unit of character or numeric information present in a SAS data set. A data value represents a variable in an observation.
+5. Data Type: An attribute of every column in a table. It indicates the operating environment, physical storage allocation, and the type of data within the column. It is analogous to the type attribute of SAS variables. Data types are created in the FORMAT statement of a PROC SQL statement. Data types are created in the FORMAT statement of a PROC SQL statement. For example the data type of a column is NUMERIC.
 
-7. SAS Database:
-An organized collection of related data. In relational database management systems, a database contains objects such as tables, views, and indexes.
+6. SAS Data Value: A unit of character or numeric information present in a SAS data set. A data value represents a variable in an observation. A data value is analogous to a SAS variable. A data value is created in the INTO clause of a PROC SQL statement.
 
-8. Database Management System (DBMS):
-An integrated software package that enables you to create and manipulate databases.
+7. SAS Database: An organized collection of related data. In relational database management systems, a database contains objects such as tables, views, and indexes. In SAS software, a SAS database is a SAS data library.
 
-9. Engine:
-A component of SAS software that reads from or writes to a file. Each engine allows access to files with a specific format. There are various types of engines.
+8. Database Management System (DBMS): An integrated software package that enables you to create and manipulate databases. In SAS software, a DBMS is a SAS data library. DBMSs are of member type CATALOG.
 
-10. Index:
-SAS indexes optimize WHERE-clause and BY-group processing, as well as join processing.
+9. Engine: A component of SAS software that reads from or writes to a file. Each engine allows access to files with a specific format. There are various types of engines.
 
-11. Informat:
-A pattern used by SAS software to interpret values entered in variable fields. SAS software provides standard informats and allows users to define custom informats.
+10. Index: SAS indexes optimize WHERE-clause and BY-group processing, as well as join processing. An index is created in the INDEX statement of a PROC SQL statement.
 
-12. Libref:
-A temporary name associated with a SAS data library. For example, in the name SASUSERS.ACCOUNTS, the libref is SASUSER. You assign a libref using a LIBNAME statement or operating system control language.
+11. Informat: A pattern used by SAS software to interpret values entered in variable fields. SAS software provides standard informats and allows users to define custom informats.
 
-13. Member:
-A SAS file within a SAS data library.
+12. Libref: A temporary name associated with a SAS data library. For example, in the name SASUSERS.ACCOUNTS, the libref is SASUSER. You assign a libref using a LIBNAME statement or operating system control language.
 
-14. Member Name:
-A name given to a SAS file in a SAS data library.
+13. Member: A SAS file within a SAS data library. For example in the name SASUSERS.ACCOUNTS, the member is ACCOUNTS. A member is created in the MEMBER statement of a PROC SQL statement.
 
-15. Member Type:
-A name used by SAS software to identify the type of information in a SAS file. Member types include ACCESS, DATA, CATALOG, PROGRAM, and VIEW.
+14. Member Name: A SAS file within a SAS data library. For example in the name SASUSERS.ACCOUNTS, the member name is ACCOUNTS. A member name is created in the MEMBER statement of a PROC SQL statement.
 
-16. Missing Value:
-A value in SAS software that indicates no data is stored for a variable in the current observation. By default, a missing numeric value is represented by a single period, and a blank space represents a missing character value.
+15. Member Type: A name used by SAS software to identify the type of information in a SAS file. Member types include ACCESS, DATA, CATALOG, PROGRAM, and VIEW. A member type is created in the MEMBER statement of a PROC SQL statement.
 
-17. Observation:
-The horizontal component of a SAS data file. It contains a collection of data values associated with a single entity, such as a customer or state. Each observation includes one data value for each variable in the data file. An observation is similar to a row in a PC file.
+16. Missing Value: A value in SAS software that indicates no data is stored for a variable in the current observation. By default, a missing numeric value is represented by a single period, and a blank space represents a missing character value. A missing value is created in the INTO clause of a PROC SQL statement.
 
-18. PROC SQL View:
-A SAS data set created by the SQL procedure (of type VIEW). It contains no data but stores information for reading data values from underlying files, which can include SAS data files, SAS/ACCESS views, DATA step views, or other PROC SQL views. The output of a PROC SQL view can be a subset or superset of one or more underlying files.
+17. Observation: The horizontal component of a SAS data file. It contains a collection of data values associated with a single entity, such as a customer or state. Each observation includes one data value for each variable in the data file. An observation is similar to a row in a PC file. An observation is created in the INTO clause of a PROC SQL statement.
 
-19. Record:
-Analogous to a SAS observation.
+18. PROC SQL View: A SAS data set created by the SQL procedure (of type VIEW). It contains no data but stores information for reading data values from underlying files, which can include SAS data files, SAS/ACCESS views, DATA step views, or other PROC SQL views. The output of a PROC SQL view can be a subset or superset of one or more underlying files.
 
-20. Relational Database Management System (RDBMS):
-A database management system that organizes and accesses data based on relationships between data items.
+19. Record: The horizontal component of a PC file. Analogous to a SAS observation. It contains a collection of data values associated with a single entity, such as a customer or state. A record is created in the INTO clause of a PROC SQL statement.
 
-21. File:
-A collection of related records treated as a unit. SAS files are processed and controlled through SAS software and stored in a SAS data library.
+20. Relational Database Management System (RDBMS): A database management system that organizes and accesses data based on relationships between data items.
 
-22. Format:
-An instruction used by SAS software to display or write each value of a variable. SAS software provides some formats, while users can create custom formats using the FORMAT procedure in base SAS software.
+21. File: A collection of related records treated as a unit. SAS files are processed and controlled through SAS software and stored in a SAS data library. A SAS data library contains one or more SAS files. A file is created in the INTO clause of a PROC SQL statement.
 
-23. Row
-The horizontal component of a PC file. A row is analogous to a SAS observation.
+22. Format: An instruction used by SAS software to display or write each value of a variable. SAS software provides some formats, while users can create custom formats using the FORMAT procedure in base SAS software.
 
-24. SAS Data File
-A SAS data file contains both the data values and the descriptor information that associates with the data, such as the variable attributes. In previous releases of SAS software, all SAS data sets were SAS data files. SAS data files are of member type DATA. In SAS software, a PROC SQL table is a SAS data file.
+23. Row: The horizontal component of a PC file. A row is analogous to a SAS observation. It contains a collection of data values associated with a single entity, such as a customer or state.
 
-25. SAS Data Library
-A collection of one or more SAS files that SAS software recognizes and that references and stores as a unit. Each file is a member of the library.
+24. SAS Data File: A SAS data file contains both the data values and the descriptor information that associates with the data, such as the variable attributes. In previous releases of SAS software, all SAS data sets were SAS data files. SAS data files are of member type DATA. In SAS software, a PROC SQL table is a SAS data file.
 
-26. SAS Data Set
-Descriptor information and its related data values, organized as a table of observations and variables that can be processed by SAS software. A SAS data set can be either a SAS data file or a SAS data view.
-A SAS data set arranges in a rectangular, two-dimensional format. Each item in a SAS data set is a data value. Data values in a row compose an observation, and those in a column compose a variable.
+25. SAS Data Library: An organized collection of related SAS data files. In SAS software, a SAS data library contains one or more SAS data files. SAS data libraries are of member type CATALOG.
 
-27. SAS Data View
-A SAS data view contains only the descriptor and other information to retrieve the data values from other data sources. PROC SQL views, SAS/ACCESS views, and DATA step views are considered SAS data views. SAS data views are of member type VIEW.
+26. SAS Data Set: A SAS data set contains the Descriptor information and its related data values, organized as a table of observations and variables that can be processed by SAS software. A SAS data set can be either a SAS data file or a SAS data view.A SAS data set arranges in a rectangular, two-dimensional format. Each item in a SAS data set is a data value. Data values in a row compose an observation, and those in a column compose a variable.
 
-28. Structured Query Language (SQL)
-The standardized, high-level query language that is used in relational database management systems to create and manipulate database management system objects. SAS software implements SQL through the SQL procedure.
+27. SAS Data View: A SAS data view contains only the descriptor and other information to retrieve the data values from other data sources. PROC SQL views, SAS/ACCESS views, and DATA step views are considered SAS data views. SAS data views are of member type VIEW.
 
-29. Table Alias
-A temporary, alternate name for a table that is specified in a FROM clause. We optionally use table aliases to qualify column names when table joins.
+28. Structured Query Language (SQL): The standardized, high-level query language that is used in relational database management systems to create and manipulate database management system objects. SAS software implements SQL through the SQL procedure.
 
-30. Table Lookup
-A processing technique in which information retrieves from an auxiliary source, on the basis of values of variables in the primary source.
+29. Table Alias: A temporary, alternate name for a table that is specified in a FROM clause. We optionally use table aliases to qualify column names when table joins. A table alias is created in the FROM clause of a PROC SQL statement. A table alias is created in the FROM clause of a PROC SQL statement.
 
-31. Target Variable
-The variable to which the result of a function or expression is assigned.
+30. Table Lookup: A processing technique in which information retrieves from an auxiliary source, on the basis of values of variables in the primary source. A table lookup is created in the WHERE clause of a PROC SQL statement.
 
-32. Variable
-A column in a SAS data set. A variable is a set of data values that describe a given characteristic across all observations. In the ACCESS procedure, variables are created from the PC files’ columns or fields.
+31. Target Variable: The variable to which the result of a function or expression is assigned. The target variable is created in the INTO clause of a PROC SQL statement.
 
-33. View
-View is a definition of a virtual dataset. This file contains no data but describes or defines the store data.
+32. Variable: A column in a SAS data set. A variable is a set of data values that describe a given characteristic across all observations. In the ACCESS procedure, variables are created from the PC files’ columns or fields. A variable is created in the INTO clause of a PROC SQL statement.
 
-34. SAS Data Mining:
-Methods for identifying trends and connections in data.
+33. View: A SAS data set that is a definition of a virtual dataset. This file contains no data but describes or defines the store data. The view is created in the FROM clause of a PROC SQL statement.
 
-35. SAS ETL Studio:
-SAS ETL Studio is an extract, transform, and load (ETL) application for data warehousing and integration.
+34. SAS Data Mining: Methods for identifying trends and connections in data. SAS Data Mining is an extension of SAS’s capabilities for advanced analytics and machine learning.
 
-36. SAS Forecast Studio:
-A time series forecasting and modelling tool
+35. SAS ETL Studio: SAS ETL Studio is an extract, transform, and load (ETL) application for data warehousing and integration. SAS ETL Studio is an extension of SAS’s capabilities for advanced analytics and machine learning.
 
-37. SAS Viya:
-An extension of SAS’s capabilities for advanced analytics and machine learning is SAS Viya, a cloud-native platform.
+36. SAS Forecast Studio: A time series forecasting and modelling tool for SAS. SAS Forecast Studio is an extension of SAS’s capabilities for advanced analytics and machine learning.
+
+37. SAS Viya: An extension of SAS’s capabilities for advanced analytics and machine learning is SAS Viya, a cloud-native platform. SASViya is an extension of SAS software for advanced analytics and machine learning.

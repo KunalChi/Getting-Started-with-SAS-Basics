@@ -1,135 +1,191 @@
-PROC IMPORT is the SAS procedure used to read data from excel into SAS. Loading excel data to SAS is one of the most common task of a SAS programmer / analyst. Most of the raw data files are saved in MS Excel so we need to take it to SAS for further analysis.
+# PROC IMPORT - Importing Excel data into SAS
 
-```SAS  
-PROC IMPORT Syntax:
-PROC IMPORT 
-DATAFILE="filename"
-OUT=SAS-data-set 
-DBMS=identifier 
-  REPLACE;
-  SHEET="Sheet-name";
-  GETNAMES=YES; 
-  DATAROW=N;
-  RANGE="range-name";
+PROC IMPORT is the SAS procedure used to read data from excel into SAS.
+For example, the SAS function will be used to import data from excel into SAS and convert the data to a SAS dataset.
+Most of the raw data files are saved in MS Excel so we need to take it to SAS for further analysis.
+
+## SAS PROC IMPORT Syntax:
+
+PROC IMPORT
+    DATAFILE="filename"
+    OUT=SAS-data-set
+    DBMS=identifier
+    REPLACE;
+    SHEET="Sheet-name";
+    GETNAMES=YES;
+    DATAROW=N;
+    RANGE="range-name";
 RUN;
-```
-1. DATAFILE=option tells SAS where to find the Excel file that you want to import (Complete filename path).
-For example : DATAFILE = "C:\Desktop\age.xlsx"
-In SAS Studio (SAS OnDemand for Academics), you can find the file which is generally available as /home/username/filename.xlsx.
-For example, DATAFILE = "/home/deepanshu88us0/age.xlsx"
-Make sure to specify your username in the path.
 
-2. OUT= option tells SAS to create a dataset with any name of your choice. By default, the imported dataset is saved on WORK library (temporary library)
-Examples :
-i. OUT = Age . In this statement, PROC IMPORT uses the WORK library and dataset name is Age. Please note that OUT = Age is equivalent to OUT = Work.Age .
+- DATAFILE=option tells SAS where to find the Excel file that you want to import (Complete filename path).
+For example : DATAFILE = "C:\Desktop\age.xlsx" or : DATAFILE = " C:\Desktop\ Age.xlsx or : DATAFILE = "C:\Desktop\ age.xlsx"
+
+## Importing an Excel file into SAS using PROC IMPORT
+
+PROC IMPORT
+    DATAFILE= "C:\Desktop\age.xlsx"
+    OUT= WORK.age
+    DBMS=XLSX
+    REPLACE;
+    SHEET="Sheet1";
+    GETNAMES=YES;
+RUN;
+
+In SAS Studio (SAS OnDemand for Academics), you can find the file which is generally available as /home/username/filename.xlsx.
+For example : DATAFILE = "C:\Desktop\ age.xlsx" and OUT= WORK.age = "/home/username/age.xlsx" 
+
+- OUT= option tells SAS to create a dataset with any name of your choice. By default, the imported dataset is saved on WORK library (temporary library)
+i. OUT = Age . In this statement, PROC IMPORT uses the WORK library and dataset name is Age.
+Please note that OUT = Age is equivalent to OUT = Work.Age .
 ii. OUT = Input.Age In this statement, PROC IMPORT uses the Input library (Permanent library).
 
-3. DBMS=option tells SAS the type of file to read.
+- DBMS=option tells SAS the type of file to read. By default, PROC IMPORT uses DBMS=EXCEL to read the Excel file.
 Examples :
 i. DBMS = XLS for Excel 97-2003 workbooks
-ii.DBMS = XLSX for Excel 2007 and above workbooks
+ii. DBMS = XLSX for Excel 2007 and above workbooks
 
-4. REPLACE is used to overwrite the existing SAS dataset (If any) mentioned in the OUT= option.
-5. SHEET= option is used to specify which sheet SAS would import.
+- REPLACE is used to overwrite the existing SAS dataset (If any) mentioned in the OUT= option. By default, the REPLACE option is used. 
+Note that REPLACE option is not used when OUT= option is not specified. In this case, PROC IMPORT creates a dataset with the same name as the Excel file.
+
+- SHEET= option is used to specify which sheet SAS would import. By default, the imported dataset is saved on WORK library (temporary library).
 Examples :
 i. SHEET = "Sheet1" - To import data from worksheet named sheet1.
 ii. SHEET = "Goal" - To import data from worksheet named Goal.
 
-6. GETNAMES= YES tells SAS to use the first row of data as variable names.
-By default, PROC IMPORT uses GETNAMES= YES. If you type GETNAMES= NO, SAS would not read variable names from first row of the sheet.
+- GETNAMES= YES tells SAS to use the first row of data as variable names.
+By default, PROC IMPORT uses GETNAMES= YES. However, you can change it to GETNAMES= NO.
+If you type GETNAMES= NO, SAS would not read variable names from first row of the sheet.
 
-7. DATAROW= option is used to specify starting row from where SAS would import the data.
-For example : DATAROW =5 tells SAS to start reading data from row number 5.
-
-Note :
+- DATAROW= option is used to specify the starting row from where SAS would import the data.
+Example : 
+DATAROW =5 tells SAS to start reading data from row number 5.
 i. When GETNAMES=YES, DATAROW must be greater than or equal to 2.
 ii. When GETNAMES=NO, DATAROW must be greater than or equal to 1
-8. RANGE= option is used to specify which range SAS would import.
-Examples :
-i. RANGE="Sheet1$B2:D10"
-This would tell SAS to import data from range B2:D10 from sheet1
-ii. RANGE="Information"
-This would tell SAS to import data from excel defined name range. In the example shown above, it is Information.
 
+- RANGE= option is used to specify which range SAS would import.
+Examples:
+i. RANGE="Sheet1$B2:D10" This would tell SAS to import data from range B2:D10 from sheet1 to sheet1.
+ii. RANGE="Information" This would tell SAS to import data from range Information RANGE="Sheet1" is equivalent to RANGE="Sheet1$B2:D10".
 
-Importing an Excel file into SAS
-PROC IMPORT DATAFILE= "C:\age.xlsx" 
-OUT= WORK.age
-DBMS=XLSX
-REPLACE;
-SHEET="Sheet1"; 
-GETNAMES=YES;
+### Importing an Excel file into SAS using PROC IMPORT with GETNAMES=YES
+
+PROC IMPORT
+    DATAFILE= "C:\age.xlsx"
+    OUT= WORK.age
+    DBMS=XLSX
+    REPLACE;
+    SHEET="Sheet1";
+    GETNAMES=YES;
 RUN;
-DATAFILE= "C:\age.xlsx" tells SAS where to find the Excel file that you want to import.
-In SAS Studio, DATAFILE = "/home/username/age.xlsx"
-OUT= WORK.age tells SAS to create a dataset named age stored in WORK library
-DBMS= XLSX tells SAS the XLSX (Excel 2007 and above) format file to read.
-REPLACE is used to overwrite the age dataset if it exists already.
-SHEET= "Sheet1" tells SAS to import data from Sheet1.
-GETNAMES="YES" tells SAS to use the first row of data as variable names.
-Important Note -
-Earlier SAS Versions before SAS9.2 does not support XLSX formatted file (Excel 2007 or later files). If your XLSX file contains records fewer than 65000 rows and 255 columns, you can save the file in XLS format by clicking on SAVE AS >> Excel 97-2003 Workbook. Later you can import the converted XLS file into SAS.
-Importing an XLS (MS Excel 97-2003) format file into SAS
-PROC IMPORT DATAFILE= "C:\age.xls" 
-OUT= WORK.age
-DBMS=XLS
-REPLACE;
-SHEET="Sheet1"; 
-GETNAMES=YES;
+
+- DATAFILE= "C:\age.xlsx" tells SAS where to find the Excel file that you want to import. 
+In SAS Studio, DATAFILE = "/home/username/age.xlsx" gives the path to the file that you want to import.
+- OUT= WORK.age tells SAS to create a dataset named age stored in WORK library directory and then import the file.
+- DBMS= XLSX tells SAS the XLSX (Excel 2007 and above) format file to read. 
+- REPLACE is used to overwrite the age dataset if it exists already. 
+- SHEET= "Sheet1" tells SAS to import data from Sheet1. 
+- GETNAMES= "YES" tells SAS to use the first row of data as variable names.
+
+Important Note -Earlier SAS Versions before SAS9.2 does not support XLSX formatted file 
+(Excel 2007 or later files). If your XLSX file contains records fewer than 65000 rows and 255 columns,
+ you can save the file in XLS format by clicking on SAVE AS >> Excel 97-2003 Workbook. 
+ Later you can import the converted XLS file into SAS. Importing an XLS (MS Excel 97-2003) format 
+ file into SAS. 
+
+PROC IMPORT DATAFILE= "C:\age.xls"
+    OUT= WORK.age
+    DBMS=XLS
+    REPLACE;
+    SHEET="Sheet1";
+    GETNAMES=YES;
 RUN;
+
+## Importing an XLS (MS Excel 97-2003) format file into SAS using PROC IMPORT
+
+PROC IMPORT
+    DATAFILE= "C:\age.xls"
+    OUT= WORK.age
+    DBMS=XLS
+    REPLACE;
+    SHEET="Sheet1";
+    GETNAMES=YES;
+RUN;
+
 DBMS=XLS tells SAS to read the XLS (Excel 97-2003) format file.
+The XLS (MS Excel 97-2003) format file is used to import the converted XLS file into SAS.
 
-Importing an excel file from specified row
-PROC IMPORT  DATAFILE= "C:\Desktop\Excel\File1.xlsx" OUT= INPUT
-DBMS=XLSX REPLACE;
-SHEET="Sheet1";
-GETNAMES=YES;
-DATAROW=5;
+## Importing an excel file from specified row number in excel
+
+PROC IMPORT DATAFILE=myfile OUT=INPUT DBMS=XLSX REPLACE;
+    SHEET="Sheet1";
+    GETNAMES=YES;
+    DATAROW=5;
 RUN;
 
+DATAROW=5 tells SAS to start reading data from row number 5. 
+In this case, variable (column) names would be pulled from first row but column values would 
+be extracted from row 5 in excel file.
 
-DATAROW=5 tells SAS to start reading data from row number 5. In this case, variable (column) names would be pulled from first row but column values would be extracted from row 5.
+## Importing variable name from other than first row in excel
 
-Importing variable name from other than first row
-Suppose variable names are placed at second row in excel sheet.
+Suppose variable names are placed at second row in excel sheet. In this case, variable 
+(column) names would be extracted from first row but column values would be extracted from second row.
 
 PROC IMPORT DATAFILE= "E:\SAS Code Repository\Book1.xls"
- DBMS=XLS
- OUT= TEMP  REPLACE;
- NAMEROW=2;
- STARTROW=3;
- GETNAMES=YES;
+    DBMS=XLS
+    OUT= TEMP
+    REPLACE
+    NAMEROW=2
+    STARTROW=3
+    GETNAMES=YES;
 RUN;
+
 NAMEROW=2 tells SAS to extract variable names from second row and STARTROW=3 is used to pull values from third row. NAMEROW only works with XLS but not with XLSX.
 
-Importing only specified columns from excel file
+## Importing only specified columns from excel file into SAS
+
+The OUT = filename followed by KEEP= statement is used to retain the desired variables.
+In the example shown above, we retained four variables ID,X,Y and Z.
+
 PROC IMPORT OUT= WORK.want (keep=id x y z)
  DATAFILE= "C:\Desktop\File1.xlsx"
  DBMS=XLSX REPLACE;
  GETNAMES=YES;
-RUN;   
-
-The OUT = filename followed by KEEP= statement is used to retain the desired variables. In the example shown above, we retained four variables ID,X,Y and Z.
-
-In the same way, you can use DROP= statement to remove the variables that you don't want to retain.
-
-For example : You don't want to import three variables say A, B and C.
-
-PROC IMPORT OUT= WORK.want(DROP=A B C) DATAFILE= "C:\Desktop\File1.xlsx" DBMS=XLSX REPLACE;
-GETNAMES=YES;
 RUN;
-Importing only rows that have non-missing data for all the variables
+
+In the same way, you can use the DROP= statement to remove the variables that you don't want to retain.
+For example, if you don't want to import three variables, A, B, and C, you can modify the code as follows:
+
+PROC IMPORT OUT= WORK.want DATAFILE= "C:\Desktop\File1.xlsx" DBMS=XLSX REPLACE;
+GETNAMES=YES;
+DROP= A B C;
+RUN;
+
+## Importing only rows that have non-missing data including all variables from excel file
+ 
+In the example shown above, WHERE= statement is used to delete all the rows that have only 
+missing data on variables x,y and z in the excel file.
+
 PROC IMPORT OUT= WORK.want ( WHERE=(x NE . AND y NE . z NE .))
  DATAFILE= "C:\Desktop\File1.xlsx"
  DBMS=XLSX REPLACE;
  GETNAMES=YES;
-RUN; 
-In the example shown above, WHERE= statement is used to delete all the rows that have only missing data on variables x,y and z.
+RUN;
 
-Importing Data from Excel based on Specified Range
+## Importing Data from Excel based on Specified Range in Excel
+
 PROC IMPORT OUT= WORK.want
  DATAFILE= "C:\Desktop\File1.xlsx"
  DBMS=XLSX REPLACE;
 RANGE="Sheet1$B4:E100";
 GETNAMES=YES;
 RUN;
+
+## Importing Data from Excel based on Named Range in Excel Sheet
+
+PROC IMPORT OUT= WORK.want
+ DATAFILE= "C:\Desktop\File1.xlsx"
+ DBMS=XLSX REPLACE;
+RANGE="Info$A1:Z100";
+GETNAMES=YES;
+RUN; 

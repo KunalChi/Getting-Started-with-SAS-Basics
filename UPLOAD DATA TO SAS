@@ -1,4 +1,6 @@
-**Steps to upload and import a file into SAS**	
+
+# Steps to upload and import a file into SAS Studio using the Import Data utility
+
 1. Go to the desired folder where you want to import the file. It is located on the left-hand side of the screen under the Server Files and Folders pane.
 2. Right-click on the folder, and then click on Upload Files.
 3. Click on Choose Files, and then locate and select the file you want to import. Then click on Upload button
@@ -8,13 +10,12 @@ Once done, the file should appear in the folder you selected in step 1.
 6. SAS Studio will import the CSV file and create a new dataset. By default, the imported dataset will be available in the WORK library.
 7. The Import Data utility automatically shows the file information and generates SAS code for importing.
 
-**Import Data can be used using PROC IMPORT instead of the Import Data utility added in SAS Studio.**
-The following SAS code creates a SAS dataset named MYDATA in the temporary library called 'WORK'.
+## Import Data can be used using PROC IMPORT instead of the Import Data utility in SAS Studio
 
-```SAS
+The following SAS code creates a SAS dataset named MYDATA in the temporary library called 'WORK'. The data file is located in the folder '/home/deepanshu88us0/mydata'. The file name is 'customers.csv'. The file is in CSV format. The GETNAMES option is set to YES. The data is imported into the MYDATA dataset.
+
 PROC IMPORT DATAFILE='/home/deepanshu88us0/mydata/customers.csv'
-	DBMS=CSV
-	OUT=WORK.MYDATA;
-	GETNAMES=YES;
+ DBMS=CSV
+ OUT=WORK.MYDATA;
+ GETNAMES=YES;
 RUN;
-```
