@@ -1,3 +1,9 @@
+Indentation:
+SAS programs can be formatted in a way that enhances readability, although it's not mandatory. Following these formatting guidelines can make your programs easier to read. A SAS program consists of statements executed in a specific order. Each statement provides information or instructions to SAS and should be appropriately placed within the program.
+
+SAS Statements:
+Similar to any programming language, there are rules to follow when writing SAS programs. The most important rule is that every SAS statement must end with a semicolon.
+
 **Part One: Basics**
 1. SAS Statement
 
