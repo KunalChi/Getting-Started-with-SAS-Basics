@@ -1,0 +1,85 @@
+
+# Syntax to import CSV file into SAS dataset in SAS
+
+You can use PROC IMPORT to import a CSV files into SAS. The syntax of PROC IMPORT is as follows:
+
+PROC IMPORT OUT=newdata
+    DATAFILE="/home/deepanshu88us0/mydata.csv"
+    DBMS=CSV
+    REPLACE;
+    GETNAMES=YES;
+RUN;
+
+(1) OUT: Specify name of the dataset to be imported into SAS dataset
+(2) DATAFILE: File location of CSV file which you want to import into SAS dataset
+(3) DMBS: Specify CSV Format which you want to import into SAS dataset
+(4) REPLACE: Optional argument. By default, it overwrites the existing file.
+    If the file already exists, set REPLACE=NO.
+    If the file already exists, set REPLACE=YES.
+    If the file already exists, set REPLACE= FIRST.
+    If the file already exists, set REPLACE= LAST.
+    If the file already exists, set REPLACE= ALL.
+    If the file already exists, set REPLACE= REPLACE.
+    If the file already exists, set REPLACE= APPEND.
+(5) GETNAMES: Optional argument. By default, it takes the first row as variable names. If the file doesn't have a header, set GETNAMES=NO.
+
+## Import Data from CSV File without Header into SAS Dataset using PROC IMPORT
+
+If your CSV file does not have header, you can use GETNAMES=NO option in PROC IMPORT. If the file doesn't have a header, set GETNAMES=NO.
+
+PROC IMPORT OUT=newdata
+    DATAFILE="/home/deepanshu88us0/mydata/customers.csv"
+    DBMS=CSV
+    REPLACE;
+    GETNAMES=YES;
+RUN;
+
+## Import Data from CSV File with Custom Delimiter into SAS Dataset using PROC IMPORT
+
+By default, SAS considers comma (,) as a delimiter which separates the values in the CSV file when importing using PROC IMPORT.
+To change delimiter, you can specify it in the DELIMITER= option in PROC IMPORT. The following code uses semicolon (;) as a delimiter.
+
+PROC IMPORT OUT=newdata
+    DATAFILE="/home/deepanshu88us0/mydata/customers.csv"
+    DBMS=CSV
+    REPLACE;
+    DELIMITER=";";
+    GETNAMES=YES;
+RUN;
+
+## Change Starting Row in PROC IMPORT to Skip Rows in CSV File using START= option in PROC IMPORT
+
+You can use the DATAROW= option to import a CSV file from a specific row. The following code imports the CSV file from 5th row.
+The following code imports the CSV file from 5th row.
+
+PROC IMPORT OUT=newdata
+    DATAFILE="/home/deepanshu88us0/mydata/customers.csv"
+    DBMS=CSV
+    REPLACE;
+    DELIMITER=";";
+    START=5;
+    GETNAMES=YES;
+RUN;
+
+## Guess the Data Type when Importing a CSV File using PROC IMPORT
+
+To guess the data type of a CSV file, you can use the GUESSINGROWS= option in PROC IMPORT.
+The following code guesses the data type of the CSV file. The guess is based on the first 1000 rows.
+
+PROC IMPORT OUT=newdata
+    DATAFILE="/home/deepanshu88us0/mydata/customers.csv"
+    DBMS=CSV
+    REPLACE;
+    DELIMITER=";";
+    GUESSINGROWS=1000;
+    GETNAMES=YES;
+RUN;
+
+## Step-by-steps below to import a CSV File into SAS Studio
+
+(1) Navigate to the desired folder where you want to import the CSV file. It is located on the left-hand side of the screen under Server Files and Folders pane.
+(2) Right click on the folder and then click on Upload Files.
+(3) Click on Choose Files and then locate and select the CSV file you want to import. Then click on Upload button
+(4) In the folder where file is imported, locate the imported datafile and then right click on it and select the Import Data option.
+(5) Click on the Run button to start importing.
+(6) SAS Studio will import the CSV file and create a new dataset. By default, the imported dataset will be available in the WORK library.
