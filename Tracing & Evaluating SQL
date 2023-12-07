@@ -1,0 +1,29 @@
+
+SAS provides a tracing facility that you can use to review the SQL code that SAS generates and passes to the DBMS. 
+Specify the SASTRACE= option, as shown in this example for Netezza, to display the generated SQL in the SAS log.
+
+In the example, the code tells SAS to show us the generated SQL code in the SAS log. The part that says "SASTRACE='," tells SAS to do this tracing.
+Then, the code tells SAS to connect to a Netezza database using specific login information (server, database, username, and password).
+
+```options sastrace=',,,d' sastraceloc=saslog nostsuffix msglevel=i;
+libname mydb netezza server='myserver.com' database=mydbms user=myuser
+   password=mypwd;```
+
+After that, the code uses a procedure called "proc sql" to ask the database a question. 
+In this case, it wants to know the count of records in a table called "class" in the database.
+
+```proc sql;
+  select count(*) from mydb.class;
+quit;```
+
+Finally, when the code runs, SAS generates a SQL query based on what we asked. It will look something like "select COUNT(*) from MYDBMS..class TXT_1". 
+This code generates a query to a Netezza database:
+select COUNT(*) from MYDBMS..class TXT_1
+
+
+
+
+
+
+
+
