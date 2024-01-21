@@ -1,1 +1,46 @@
+# SAS CARDS STATEMENT
 
+The CARDS statement in SAS is used to create a dataset. You can directly enter data into a SAS program using the CARDS statement, without the need for an external data file.
+The CARDS statement is an alternative to the DATALINES statement and serves the same purpose. It is used in the same way as DATALINES to specify inline data within the SAS program.
+
+# Syntax of CARDS statement
+
+The syntax of CARDS statement is as follows.
+
+```SAS
+DATA new_dataset;
+INPUT variable1 $ variable2 variable3;
+CARDS;
+A 10 20
+B 15 25
+C 8 18
+;
+RUN;
+```
+
+(1) DATA new_dataset;: Starts the DATA step and defines a new dataset named new_dataset.
+(2) INPUT variable1 $ variable2 variable3;: Specifies the variable names and their data types. In this case, variable1 is a character variable, while variable2 and variable3 are numeric variables.
+(3) CARDS;: Indicates the start of the data section.
+(4) The lines following CARDS; are the data values for each variable. Each line represents one observation, and the values for each variable are separated by spaces.
+(5) RUN;: marks the end of the DATA step and executes it, creating the "new_dataset" dataset.
+(6) A dollar sign $ following a variable name indicates that the variable is a character variable.
+
+
+# How to read a large character variable in SAS
+
+By default, the length of a character variable is set at the first occurrence of the variable. If you want to read a large character variable, you can use colon modifier : 
+which tells SAS to read variable until there is a space or other delimiter. The $20. indicates the length of the character variable.
+
+```SAS
+DATA new_dataset;
+   INPUT variable1 :$20. variable2 variable3;
+   CARDS;
+   Arjun 10 20
+   DavidHouse 15 25
+   TomHorton 8 18
+   ;
+RUN;
+
+proc print data=new_dataset;
+run;
+```
