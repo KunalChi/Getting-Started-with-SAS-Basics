@@ -4,3 +4,79 @@
 '''
 INPUT VAR1 $ VAR2 $ VAR3 $; 	#Define character variables in the data set.
 '''
+
+# Let's create a sample dataset
+
+In the code below, we are creating a dataset named Example1 which is stored on WORK (temporary) library. In this dataset, there would be a variable called OldPrice which contains a value 10. 
+The RUN statement is used to close the dataset program. Press F3 or click on submit button to make the code run.
+
+```SAS
+DATA Example1;
+OldPrice=10;
+RUN;
+
+```
+
+# Creating a numeric variable
+
+You create variables using the form:  variable = expression; variable = expression; Suppose you are asked to create a new variable NewPrice, in the existing SAS data set Example1. 
+Both variables are numeric. The variable NewPrice is twice of OldPrice.
+
+```SAS
+DATA Example1;
+SET Example1;
+NewPrice=2*OldPrice;
+RUN;
+
+```
+
+# Create a numeric variable
+
+If you are asked to store a new variable NewPrice on a new dataset, you can create it using DATA statement. The new variable NewPrice is twice of OldPrice. The price = 2*OldPrice is an expression.
+
+```SAS
+
+DATA Readin;
+SET Example1;
+OldPrice=10;
+NewPrice=2*OldPrice;
+RUN;
+
+```
+
+In this case, the dataset READIN was created. The new variable NewPrice is twice of OldPrice.
+
+# Creating a character variable
+
+In the same dataset Example1, let's create a character variable say Type. The character value for set is set 'Good'. The quote marks needs to be entered around the character variable.
+
+```SAS
+
+DATA Example1;
+SET Example1;
+Type = 'Good';
+RUN;
+
+```
+
+Since Type is a character variable, it should in quotes. It can be either single or double quotes. The quote marks needs to be entered around the character variable. 
+The character value for set is set 'Good'.
+
+# Creating or Modifying a variable
+
+Suppose the value of OldPrice is increased by 5 units and you need to calculate the relative change in price. In this case, we are modifying the existing variable OldPrice 
+so we will add 5 to OldPrice. Later we calculate the percentage change between old and new price.
+
+```SAS
+
+DATA Readin;
+SET Example1;
+OldPrice=5 + OldPrice;
+NewPrice=OldPrice*2;
+Change= ((NewPrice-OldPrice)/ OldPrice);
+Format Change Percent10.0;
+RUN;
+
+```
+
+The FORMAT statement is used to display the change value in percentage format. In this case, we are creating a new dataset as well as modifying the existing variable. 
