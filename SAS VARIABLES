@@ -1,0 +1,6 @@
+## SAS has three types of variables
+1) Numeric Variables - This is the default variable type. These variables are used in mathematical expressions.
+2) Character Variables - Character variables store non-mathematical values as text or strings. To make a variable a character variable, add a $ symbol followed by a space at the end of its name.
+'''
+INPUT VAR1 $ VAR2 $ VAR3 $; 	#Define character variables in the data set.
+'''

@@ -1,0 +1,7 @@
+When you install SAS software, it has several built-in modules which are used for various analytics and reporting purposes.
+
+Base SAS - It is the most common SAS module. It is used for data manipulation such as filtering data, selecting, renaming or removing columns etc.
+SAS/STAT - It runs popular statistical techniques such as Hypothesis Testing, Linear and Logistic Regression, Principal Component Analysis etc.
+SAS/ACCESS - It lets you to read data from databases such as Teradata, SQL Server, Oracle DB2 etc.
+SAS/GRAPH - You can create simple and complex graphs using this component.
+SAS/ETS - You can perform time series forecasting such as ARIMA, Exponential Smoothing, Moving Average etc. using this module.

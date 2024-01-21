@@ -1,0 +1,59 @@
+Important SAS Shortcuts for Productivity
+
+The following is a list of productivity boosting SAS keyboard shortcuts:
+
+F3 or F8            Run or submit a program	
+Ctrl + /            Comment the selected code
+Ctrl + Shift + /    Uncomment the selected code 
+Ctrl + Break        Stop Processing or Cancel Submitted Statement	
+Ctrl + Shift + U    Convert selected text to upper case	
+Ctrl + Shift + L    Convert selected text to lower case	
+Ctrl + F            Find text	
+Ctrl + H            Find and replace text	
+Ctrl + C            Copy Selection	
+Ctrl + V            Paste	
+Ctrl + X            Cut Selection	
+Ctrl + G            Go to a particular line	
+Alt + [or Alt +]    To move curser to the matching DO/END statemen	
+Ctrl + [or Ctrl +]  To move cursor to matching brace/parentheses	
+Home                Move to beginning of line	
+CTRL+Home           Move to top	
+CTRL+End            Move to end	
+CTRL+F4             To close the active window	
+ALT+F4              To exit the SAS system	
+
+Important Shortcuts for SAS Enterprise Guide:
+
+Ctrl+End            Go to the last record, last column
+Ctrl+Home           Go to the first record, first column
+Ctrl+G	            Go to specific row or column
+Ctrl + right arrow	Move to last column
+Ctrl + left arrow	  Move to first column
+F2	                Rename dataset
+Ctrl + I	          Format ugly code (Select the code and press Ctrl I)
+
+Other Useful SAS Keyboard Shortcuts:
+
+Alt + F1 + No Selection    Bring up word tip
+ESC                        Hide the current word tip
+Shift + F4                 Tile	
+Shift + F5                 Cascade	
+Ctrl + F6                  Next window
+Ctrl + Tab                 Next Window
+F9                         Keys
+F8                         Editor
+F7                         Output
+F6                         Log
+F8                         Submit selected code	
+Ctrl + Shift + U           Convert the selected text to uppercase	
+Ctrl + Shift + L           Convert the selected text to lowercase	
+Ctrl + Shift + /           Undo the Comment
+
+
+
+
+
+
+
+
+
