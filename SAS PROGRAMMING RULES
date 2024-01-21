@@ -1,18 +1,52 @@
 
-When it comes to programming in SAS, there are several best practices and rules that can help improve code readability, efficiency, and maintainability. Here are some important SAS programming rules to keep in mind:
+# When it comes to programming in SAS, there are several best practices and rules that can help improve code readability, efficiency, and maintainability.
 
-I. Rules for SAS statements
+# Here are some important SAS programming rules to keep in mind
+
+# I. Rules for SAS statements
   A) All SAS statements (except those containing data) must end with a semicolon (;). Example : "DATA example1;" is an example of a SAS statement.
   B) Any number of SAS statements can appear on a single line provided they are separated by a semicolon. Example : "DATA example1; Input Name $ ID;" is an example of a SAS statement.
   C) SAS statements typically begin with a SAS keyword. (DATA, PROC)
   D) SAS statements are not case sensitive, that is, they can be entered in lowercase, uppercase, or a mixture of the two. Example : SAS keywords (DATA, PROC) are not case sensitive
   E) A delimited comment begins with a forward slash-asterisk (/*) and ends with an asterisk-forward slash (*/). All text within the delimiters is ignored by SAS.
 
-II. Rules for SAS names
+# II. Rules for SAS names
   A) All names must contain between 1 and 32 characters.
   B) The first character appearing in a name must be a letter (A, B, ...Z, a, b, ... z) or an underscore (_). Subsequent characters must be letters, numbers, or underscores. 
-     That is, no other characters, such as $, %, or & are permitted. Blanks also cannot appear in SAS names.
+     The last character cannot be an underscore. That is, no other characters, such as $, %, or & are permitted. Blanks also cannot appear in SAS names.
   C) SAS names are not case sensitive, that is, they can be entered in lowercase, uppercase, or a mixture of the two. (SAS is only case sensitive within quotation marks.)
 
-III. Rules for SAS variables
+
+# III. Rules for SAS variables
   A) If the variable in the INPUT statement is followed by a dollar sign ($), SAS assumes this is a character variable. Otherwise, the variable is considered as a numeric variable.
+
+
+# IV. SAS has three types of variables
+1) **Numeric Variables** - This is the default variable type. These variables are used in mathematical expressions. To make a variable numeric, add a $ symbol before its name. 
+     For example, if the variable is called VAR1, then VAR1$ is a numeric variable.
+2) **Character Variables** - Character variables store non-mathematical values as text or strings. To make a variable a character variable, add a $ symbol followed by a space at the end of its name. 
+     For example, if the variable is called VAR1, then VAR1$ is a character variable.
+3) **Date Variables** - Date variables store dates in the format MMDDYY8. For example, if the variable is called VAR1, then VAR1 is a date variable. 
+     Dates are stored in SAS as the number of days since 01JAN1960. The number of days since 01JAN1960 is stored in SAS as the number of days since 01JAN1970.
+
+import sas
+'''
+data example1;
+  input VAR1 $ VAR2 $ VAR3 $;
+  input VAR4 $ VAR5 $ VAR6 $;
+  input VAR7 $ VAR8 $ VAR9 $;
+run;
+/*Define character variables in the data set*/
+'''
+
+# V. Rules for SAS statements and procs in SAS
+1) **data**    Begins a data step which manipulates datasets and creates new variables in the dataset
+2) **infile**    Identifies an external raw data file to read from or to write to a SAS data set
+3) **input**  Lists variable names in the input file to read from or write to a SAS data set
+4) **datalines**  Indicates internal data to read from or write to a SAS data set
+5) **set**  Reads a SAS data set from the SAS data library directory in the SAS session
+6) **proc contents**  Contents of a data set in the SAS data library directory in the SAS session
+7) **proc print**    Prints observations of variables in a data set in the SAS log window
+8) **libname**    An engine to connect to Microsoft files and folders in the SAS data library directory in the SAS session
+9) **run**  Executes SAS statements in the SAS session
+10) **end** Ends a SAS data step which manipulates datasets and creates new variables in the dataset
