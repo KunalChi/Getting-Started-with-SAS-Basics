@@ -1,9 +1,11 @@
-## SAS has three types of variables
+# SAS has three types of variables
+
 1) Numeric Variables - This is the default variable type. These variables are used in mathematical expressions.
 2) Character Variables - Character variables store non-mathematical values as text or strings. To make a variable a character variable, add a $ symbol followed by a space at the end of its name.
-'''
+
+```SAS
 INPUT VAR1 $ VAR2 $ VAR3 $; 	#Define character variables in the data set.
-'''
+```
 
 # Let's create a sample dataset
 
@@ -14,7 +16,6 @@ The RUN statement is used to close the dataset program. Press F3 or click on sub
 DATA Example1;
 OldPrice=10;
 RUN;
-
 ```
 
 # Creating a numeric variable
@@ -27,7 +28,6 @@ DATA Example1;
 SET Example1;
 NewPrice=2*OldPrice;
 RUN;
-
 ```
 
 # Create a numeric variable
@@ -35,15 +35,12 @@ RUN;
 If you are asked to store a new variable NewPrice on a new dataset, you can create it using DATA statement. The new variable NewPrice is twice of OldPrice. The price = 2*OldPrice is an expression.
 
 ```SAS
-
 DATA Readin;
 SET Example1;
 OldPrice=10;
 NewPrice=2*OldPrice;
 RUN;
-
 ```
-
 In this case, the dataset READIN was created. The new variable NewPrice is twice of OldPrice.
 
 # Creating a character variable
@@ -51,14 +48,11 @@ In this case, the dataset READIN was created. The new variable NewPrice is twice
 In the same dataset Example1, let's create a character variable say Type. The character value for set is set 'Good'. The quote marks needs to be entered around the character variable.
 
 ```SAS
-
 DATA Example1;
 SET Example1;
 Type = 'Good';
 RUN;
-
 ```
-
 Since Type is a character variable, it should in quotes. It can be either single or double quotes. The quote marks needs to be entered around the character variable. 
 The character value for set is set 'Good'.
 
@@ -68,7 +62,6 @@ Suppose the value of OldPrice is increased by 5 units and you need to calculate 
 so we will add 5 to OldPrice. Later we calculate the percentage change between old and new price.
 
 ```SAS
-
 DATA Readin;
 SET Example1;
 OldPrice=5 + OldPrice;
@@ -76,7 +69,26 @@ NewPrice=OldPrice*2;
 Change= ((NewPrice-OldPrice)/ OldPrice);
 Format Change Percent10.0;
 RUN;
-
 ```
-
 The FORMAT statement is used to display the change value in percentage format. In this case, we are creating a new dataset as well as modifying the existing variable. 
+
+## How to read a large character variable in SAS
+
+By default, the length of a character variable is set at the first occurrence of the variable. If you want to read a large character variable, you can use colon modifier : 
+which tells SAS to read variable until there is a space or other delimiter. The $20. indicates the length of the character variable. 
+For example: The length of the character variable is set to 20 characters. If you want to read a large character variable, you can use colon modifier : 
+which tells SAS to read variable until there is a space or other delimiter. The $20. indicates the length of the character variable.
+
+```SAS
+DATA new_dataset;
+    INPUT variable1 :$20. variable2 variable3;
+    DATALINES;
+    Sam 10 20
+    MarkSpencers 15 25
+    RandyHortonia 8 18
+    ;
+RUN;
+
+proc print data=new_dataset;
+run;
+```
