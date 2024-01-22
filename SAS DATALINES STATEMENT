@@ -3,6 +3,7 @@
 
 The DATALINES statement in SAS is used to create a dataset. You can input data directly into a SAS program using the DATALINES statement, without the need for an external data file. For example:
 
+```SAS
 data mydata;
   infile datalines;
   input var1 $ var2;
@@ -12,14 +13,19 @@ data mydata;
   value3 30
   ;
 run;
-
-This line starts the DATA step and defines a new dataset named new_dataset. The DATALINES statement is used to input data into the new dataset. You can input data directly into a SAS program using the DATALINES statement, without the need for an external data file. INPUT variable1 $ variable2 variable3; This line specifies the variable names and their data types. In this case, variable1 is a character variable, while variable2 and variable3 are numeric variables. The lines following DATALINES; represent the data values for each variable. Each line represents one observation, and the values for each variable are separated by spaces. The DATA step ends with the DATALINES statement. The DATA step ends with the RUN statement. The RUN statement is used to execute the program.
+```
+This line starts the DATA step and defines a new dataset named new_dataset. The DATALINES statement is used to input data into the new dataset. You can input data directly into a SAS program using the DATALINES statement, 
+without the need for an external data file. INPUT variable1 $ variable2 variable3; This line specifies the variable names and their data types. In this case, variable1 is a character variable, while variable2 and variable3 
+are numeric variables. The lines following DATALINES; represent the data values for each variable. Each line represents one observation, and the values for each variable are separated by spaces. The DATA step ends with the 
+DATALINES statement. The DATA step ends with the RUN statement. The RUN statement is used to execute the program.
 
 ## How to read a large character variable in SAS
 
-By default, the length of a character variable is set at the first occurrence of the variable. If you want to read a large character variable, you can use colon modifier : which tells SAS to read variable until there is a space or other delimiter. The $20. indicates the length of the character variable.
-For example: The length of the character variable is set to 20 characters. If you want to read a large character variable, you can use colon modifier : which tells SAS to read variable until there is a space or other delimiter. The $20. indicates the length of the character variable.
+By default, the length of a character variable is set at the first occurrence of the variable. If you want to read a large character variable, you can use colon modifier : which tells SAS to read variable until there is a 
+space or other delimiter. The $20. indicates the length of the character variable. For example: The length of the character variable is set to 20 characters. If you want to read a large character variable, you can use 
+colon modifier : which tells SAS to read variable until there is a space or other delimiter. The $20. indicates the length of the character variable.
 
+```SAS
 DATA new_dataset;
     INPUT variable1 :$20. variable2 variable3;
     DATALINES;
@@ -31,3 +37,4 @@ RUN;
 
 proc print data=new_dataset;
 run;
+```
