@@ -14,8 +14,10 @@ Once done, the file should appear in the folder you selected in step 1.
 
 The following SAS code creates a SAS dataset named MYDATA in the temporary library called 'WORK'. The data file is located in the folder '/home/deepanshu88us0/mydata'. The file name is 'customers.csv'. The file is in CSV format. The GETNAMES option is set to YES. The data is imported into the MYDATA dataset.
 
+```SAS
 PROC IMPORT DATAFILE='/home/deepanshu88us0/mydata/customers.csv'
  DBMS=CSV
  OUT=WORK.MYDATA;
  GETNAMES=YES;
 RUN;
+```
