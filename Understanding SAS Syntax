@@ -1,0 +1,68 @@
+A DATA step can contain a variety of data manipulations, including filtering rows, computing new
+columns, and joining tables. In this program, the DATA step is creating a copy of an existing SAS
+table and adding a new column to convert height from inches to centimeters.
+
+# Example code:
+
+  data myclass;
+      set sashelp.class;
+      heightcm=height*2.54;
+  run;
+
+  proc print data=myclass;
+  run;
+
+  proc means data=myclass;
+      var age heightcm;
+  run;
+
+A PROC, or procedure, step typically processes a SAS data set. SAS has dozens of procedures that
+generate reports and graphs, manage data, or perform complex statistical analysis. This program
+has two PROC steps: PROC PRINT generates a list of all the rows and columns in the data, and
+PROC MEANS calculates basic summary statistics.
+
+If a RUN or QUIT statement is not used at the end of a step, the beginning of a new step implies the
+end of the previous step. If a RUN or QUIT statement is not used at the end of the last step, SAS
+Studio and Enterprise Guide automatically submit a RUN and QUIT statement after the submitted
+code.
+
+Most statements begin with an identifying keyword. In addition to DATA, PROC, and RUN
+statements, this program also includes SET and VAR statements. The one statement that does not
+begin with a keyword is the one that is creating the new column heightcm. The most important thing
+to remember here is that all statements end with a semicolon.In addition to DATA and PROC steps, a 
+SAS program can also contain global statements. These statements can be outside DATA and PROC steps, 
+and they typically define some option or setting for the SAS session. Global statements do not need a 
+RUN statement after them.
+
+# Example code:
+
+  /*Program created by <name>*/ 
+  data mycars; set sashelp.cars; 
+    AvgMPG=mean(mpg_city, mpg_highway); 
+    run;
+
+  *title "Cars with Average MPG Over 35"; 
+
+  proc print data=mycars; 
+    var make model type avgmpg; 
+    *where AvgMPG > 35; 
+  run; 
+
+  title "Average MPG by Car Type"; 
+
+  proc means data=mycars mean min max maxdec=1; 
+    var avgmpg; 
+    class type; 
+  run; 
+
+  title;
+
+Syntax errors are a fact of programming life. As a programmer, it is incredibly valuable to be able to 
+identify, diagnose, and fix syntax errors in your code. A syntax error is an error in the spelling or 
+grammar of a SAS statement. Examples of syntax errors include misspelled keywords, unmatched quotation 
+marks, missing semicolons, and invalid options. You can catch some syntax errors, such as an unmatched 
+quotation mark, by paying attention to the color-coded syntax. When SAS finds a syntax error in your 
+submitted program, a warning or error message is written in the log.
+
+
+
