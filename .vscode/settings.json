@@ -1,3 +1,68 @@
 {
-    "terminal.integrated.automationProfile.windows": {}
-}
+    "terminal.integrated.automationProfile.windows": {
+        "path": "C:\\Windows\\System32\\cmd.exe",
+        "args": [] // No additional arguments needed
+    }, 
+    "terminal.integrated.automationProfile.linux": {
+        "path": "/bin/bash",
+        "args": [] // No additional arguments needed
+    },
+    "terminal.integrated.automationProfile.osx": {
+        "path": "/bin/bash",
+        "args": [] // No additional arguments needed
+    },
+    "terminal.integrated.defaultProfile.windows": "Command Prompt",
+    "terminal.integrated.defaultProfile.linux": "bash",
+    "terminal.integrated.defaultProfile.osx": "bash",
+    "terminal.integrated.profiles.windows": {
+        "cmd": {
+            "path": "C:\\Windows\\System32\\cmd.exe",
+            "args": [] // No additional arguments needed
+        },
+        "bash": {
+            "path": "C:\\Windows\\System32\\bash.exe",
+            "args": [] // No additional arguments needed
+        }
+    },
+    "terminal.integrated.profiles.linux": {
+        "bash": {
+            "path": "/bin/bash",
+            "args": [] // No additional arguments needed
+        },
+        "zsh": {
+            "path": "/bin/zsh",
+            "args": [] // No additional arguments needed
+        }
+    },
+    "terminal.integrated.profiles.osx": {
+        "bash": {
+            "path": "/bin/bash",
+            "args": [] // No additional arguments needed
+        },
+        "zsh": {
+            "path": "/bin/zsh",
+            "args": [] // No additional arguments needed
+        }
+    },
+    "terminal.integrated.shellIntegration.enabled": true,
+    "terminal.integrated.scrollback": 10000,
+    "terminal.integrated.cursorBlinking": true,
+    "terminal.integrated.fontSize": 14,
+    "terminal.integrated.lineHeight": 1.2,
+    "terminal.integrated.fontFamily": "Consolas, 'Courier New', monospace",
+    "terminal.integrated.scrollSensitivity": 1.0,
+    "terminal.integrated.rightClickBehavior": "paste",
+    "terminal.integrated.enableMultiLinePasteWarning": "auto", 
+    "terminal.integrated.enablePersistentSessions": true,
+    "terminal.integrated.enablePersistentHistory": true,
+    "terminal.integrated.enableFileLinks": "on",
+    "terminal.integrated.enableShellIntegrationNotifications": false,
+        "terminal.integrated.enableShellIntegrationTelemetry": false
+    }
+
+
+
+
+
+
+
